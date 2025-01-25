@@ -30,5 +30,5 @@ Initial call: loadQuestion() is called initially to display the first question.
 visual studio code editor is used here.
 
 #OUTPUT
-
+![Image](https://github.com/user-attachments/assets/ed26328f-2e59-4b02-bcd6-7379bb17812f)
 
