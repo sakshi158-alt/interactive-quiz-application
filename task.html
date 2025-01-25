@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz Application</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+        }
+        #quiz-container {
+            width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        #question {
+            margin-bottom: 20px;
+        }
+        .options {
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 3px;
+            background-color: #4CAF50; /* Green */
+            color: white;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="quiz-container">
+        <h1>Quiz Application</h1>
+        <div id="question"></div>
+
+        <div id="options"></div>
+
+        <button onclick="checkAnswer()">Submit</button>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "What is the capital of France?",
+                options: ["Berlin", "Madrid", "Paris", "Rome"],
+                correctAnswer: "Paris"
+            },
+            {
+                question: "Who painted the Mona Lisa?",
+                options: ["Michelangelo", "Leonardo da Vinci", "Raphael", "Donatello"],
+                correctAnswer: "Leonardo da Vinci"
+            },
+            // Add more questions here
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        function loadQuestion() {
+            const questionData = questions[currentQuestionIndex];
+            document.getElementById("question").textContent = questionData.question;
+
+            const optionsContainer = document.getElementById("options");
+            optionsContainer.innerHTML = ""; 
+
+            questionData.options.forEach(option => {
+                const button = document.createElement("button");
+                button.textContent = option;
+                button.onclick = () => checkAnswer(option);
+                optionsContainer.appendChild(button);
+            });
+        }
+
+        function checkAnswer(selectedOption) {
+            const questionData = questions[currentQuestionIndex];
+            if (selectedOption === questionData.correctAnswer) {
+                score++;
+            }
+
+            currentQuestionIndex++;
+
+            if (currentQuestionIndex < questions.length) {
+                loadQuestion();
+            } else {
+                displayResult();
+            }
+        }
+
+        function displayResult() {
+            const resultContainer = document.getElementById("result");
+            resultContainer.textContent = You scored ${score} out of ${questions.length}!;
+        }
+
+        loadQuestion();
+    </script>
+
+</body>
+</html>
