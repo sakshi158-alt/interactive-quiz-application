@@ -1,6 +1,6 @@
 # interactive-quiz-application
 
-*company*: CODETECH IT SOLUTIONS
+*COMPANY*: CODETECH IT SOLUTIONS
 
 *NAME*:SAKSHI SURYAWANSHI
 
@@ -28,4 +28,7 @@ showResults() function:
 Displays the final score to the user.
 Initial call: loadQuestion() is called initially to display the first question.
 visual studio code editor is used here.
+
+#OUTPUT
+
 
